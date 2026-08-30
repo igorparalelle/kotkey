@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mistrz Kluczy — dorabianie kluczy samochodowych w Warszawie 24/7</title>
 <link rel="preconnect" href="https://fonts.googleapis.com/">
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="2Mistrz%20Kluczy%20%E2%80%94%20dorabianie%20kluczy%20samochodowych%20w%20Warszawie%2024_7_files/css2_CS7m.css" rel="stylesheet">
 <style>
   :root{
     --bg:#111113;
@@ -63,7 +63,7 @@
   }
   .nav{display:flex;align-items:center;justify-content:space-between;height:72px;}
   .brand{display:flex;align-items:center;gap:10px;font-family:'Barlow Condensed';font-size:22px;font-weight:800;text-transform:uppercase;letter-spacing:0;}
-  .brand-logo{width:40px;height:40px;flex-shrink:0;border-radius:50%;object-fit:cover;}
+  .brand-logo{width:80px;height:80px;flex-shrink:0;}
   .brand strong{color:var(--yellow);}
   .nav-links{display:flex;gap:30px;font-size:15px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.02em;}
   .nav-links a{font-family:'Barlow Condensed';font-size:16px;}
@@ -118,9 +118,6 @@
     animation:float 4.2s ease-in-out infinite;position:relative;z-index:2;
   }
   .key-photo-card img{width:100%;border-radius:5px;display:block;}
-  .photo-slider{position:relative;width:100%;aspect-ratio:10/9;overflow:hidden;border-radius:5px;}
-  .photo-slider .slide{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.2s ease;}
-  .photo-slider .slide.active{opacity:1;}
   .key-photo-card .tag{
     position:absolute;top:-14px;right:-14px;background:var(--red);color:#fff;
     font-family:'Barlow Condensed';font-weight:800;text-transform:uppercase;font-size:13px;
@@ -283,7 +280,7 @@
 
   <section class="hero">
     <div class="wrap hero-grid">
-      <div class="reveal">
+      <div class="reveal in">
         <div class="eyebrow"><span class="dot"></span>Dojazd w 30 minut · Warszawa 24/7</div>
         <h1>Zablokowany?<br>Zrobimy nowy klucz <span>odpalimy auto</span></h1>
         <p class="lede">Duplikaty, klucze z chipem, piloty i 
@@ -294,19 +291,15 @@ otwieramy i dorabiamy klucz prosto na miejscu.</p>
           <a class="btn btn-ghost" href="#pricing">Zobacz cennik</a>
         </div>
         <div class="stat-strip">
-          <div class="stat"><div class="num" data-count="3000" data-suffix="+">0</div><div class="lbl">dorobionych kluczy</div></div>
-          <div class="stat"><div class="num" data-count="40" data-suffix="+">0</div><div class="lbl">marek samochodów</div></div>
-          <div class="stat"><div class="num" data-count="30" data-suffix=" min">0</div><div class="lbl">średni dojazd</div></div>
-          <div class="stat"><div class="num" data-count="24" data-suffix="/7">0</div><div class="lbl">dostępność</div></div>
+          <div class="stat"><div class="num" data-count="3000" data-suffix="+">3000+</div><div class="lbl">dorobionych kluczy</div></div>
+          <div class="stat"><div class="num" data-count="40" data-suffix="+">40+</div><div class="lbl">marek samochodów</div></div>
+          <div class="stat"><div class="num" data-count="30" data-suffix=" min">30 min</div><div class="lbl">średni dojazd</div></div>
+          <div class="stat"><div class="num" data-count="24" data-suffix="/7">24/7</div><div class="lbl">dostępność</div></div>
         </div>
       </div>
       <div class="key-art" aria-hidden="true">
         <div class="key-photo-card">
-          <div class="photo-slider">
-            <img src="kluczyki-foto.jpg" class="slide active" alt="Kluczyki samochodowe do różnych marek — Mistrz Kluczy Warszawa">
-            <img src="kluczyki-foto2.jpg" class="slide" alt="Kluczyki samochodowe do różnych marek — Mistrz Kluczy Warszawa">
-            <img src="kluczyki-foto3.jpg" class="slide" alt="Kluczyki samochodowe do różnych marek — Mistrz Kluczy Warszawa">
-          </div>
+          <img src="kluczyki-foto.jpg" alt="Kluczyki samochodowe do różnych marek — Mistrz Kluczy Warszawa">
           <div class="tag">24/7</div>
         </div>
       </div>
@@ -317,44 +310,45 @@ otwieramy i dorabiamy klucz prosto na miejscu.</p>
 
   <section class="services" id="services">
     <div class="wrap">
-      <div class="section-head reveal">
+      <div class="section-head reveal in">
         <div class="eyebrow">Usługi</div>
+        <img src="2kluczyki-foto.jpg" alt="Kluczyki samochodowe do różnych marek — Mistrz Kluczy Warszawa">
         <h2>Każda sprawa z kluczykiem</h2>
         <p>Od prostego duplikatu po pełne przywrócenie dostępu, gdy zgubiono komplet kluczy.</p>
       </div>
       <div class="service-grid">
-        <div class="service-card reveal"><div class="n">01</div><h3>Klucz na wzór</h3><p>Wykonamy dokładną kopię oryginału — część mechaniczną i chip w jednym dojeździe.</p></div>
-        <div class="service-card reveal"><div class="n">02</div><h3>Klucz bez wzoru</h3><p>Odczytujemy dane z wkładki zamka lub numeru VIN, gdy oryginału brak, a auto jeździ.</p></div>
-        <div class="service-card reveal"><div class="n">03</div><h3>Programowanie chipa</h3><p>Zapisujemy transponder w immobilizerze, aby silnik rozpoznał nowy klucz.</p></div>
-        <div class="service-card reveal"><div class="n">04</div><h3>Naprawa pilota</h3><p>Wymieniamy obudowę, przyciski, płytkę lub baterię pilota centralnego zamka.</p></div>
-        <div class="service-card reveal"><div class="n">05</div><h3>Otwieranie drzwi</h3><p>Delikatnie otworzymy auto bez uszkodzeń, gdy kluczyk zostanie w środku.</p></div>
-        <div class="service-card reveal"><div class="n">06</div><h3>Zgubiony komplet kluczy</h3><p>Kompletne rozwiązanie od zera: obejście immobilizera i wydanie nowego klucza.</p></div>
+        <div class="service-card reveal in"><div class="n">01</div><h3>Klucz na wzór</h3><p>Wykonamy dokładną kopię oryginału — część mechaniczną i chip w jednym dojeździe.</p></div>
+        <div class="service-card reveal in"><div class="n">02</div><h3>Klucz bez wzoru</h3><p>Odczytujemy dane z wkładki zamka lub numeru VIN, gdy oryginału brak, a auto jeździ.</p></div>
+        <div class="service-card reveal in"><div class="n">03</div><h3>Programowanie chipa</h3><p>Zapisujemy transponder w immobilizerze, aby silnik rozpoznał nowy klucz.</p></div>
+        <div class="service-card reveal in"><div class="n">04</div><h3>Naprawa pilota</h3><p>Wymieniamy obudowę, przyciski, płytkę lub baterię pilota centralnego zamka.</p></div>
+        <div class="service-card reveal in"><div class="n">05</div><h3>Otwieranie drzwi</h3><p>Delikatnie otworzymy auto bez uszkodzeń, gdy kluczyk zostanie w środku.</p></div>
+        <div class="service-card reveal in"><div class="n">06</div><h3>Zgubiony komplet kluczy</h3><p>Kompletne rozwiązanie od zera: obejście immobilizera i wydanie nowego klucza.</p></div>
       </div>
     </div>
   </section>
 
   <section class="process" id="process">
     <div class="wrap">
-      <div class="section-head reveal">
+      <div class="section-head reveal in">
         <div class="eyebrow">Kolejność działań</div>
         <h2>Cztery kroki do nowego klucza</h2>
       </div>
       <div class="process-grid">
-        <div class="step reveal"><div class="idx">01</div><h3>Zgłoszenie</h3><p>Dzwonisz — podajesz markę, rok i sytuacje z kluczem.</p></div>
-        <div class="step reveal"><div class="idx">02</div><h3>Dojazd</h3><p>Mistrz przyjeżdża ze sprzętem pod wskazany adres w Warszawie.</p></div>
-        <div class="step reveal"><div class="idx">03</div><h3>Wykonanie</h3><p>Ustalamy typ klucza, wycinamy profil i programujemy chip na miejscu.</p></div>
-        <div class="step reveal"><div class="idx">04</div><h3>Sprawdzenie</h3><p>Testujemy wszystkie funkcje klucza — płatność dopiero po udanym efekcie.</p></div>
+        <div class="step reveal in"><div class="idx">01</div><h3>Zgłoszenie</h3><p>Dzwonisz — podajesz markę, rok i sytuacje z kluczem.</p></div>
+        <div class="step reveal in"><div class="idx">02</div><h3>Dojazd</h3><p>Mistrz przyjeżdża ze sprzętem pod wskazany adres w Warszawie.</p></div>
+        <div class="step reveal in"><div class="idx">03</div><h3>Wykonanie</h3><p>Ustalamy typ klucza, wycinamy profil i programujemy chip na miejscu.</p></div>
+        <div class="step reveal in"><div class="idx">04</div><h3>Sprawdzenie</h3><p>Testujemy wszystkie funkcje klucza — płatność dopiero po udanym efekcie.</p></div>
       </div>
     </div>
   </section>
 
   <section class="brands" id="brands">
     <div class="wrap">
-      <div class="section-head reveal">
+      <div class="section-head reveal in">
         <div class="eyebrow">Marki</div>
         <h2>Obsługujemy większość samochodów</h2>
       </div>
-      <div class="brand-grid reveal">
+      <div class="brand-grid reveal in">
         <span class="brand-chip">Toyota</span><span class="brand-chip">Kia</span><span class="brand-chip">Hyundai</span>
         <span class="brand-chip">Volkswagen</span><span class="brand-chip">Škoda</span><span class="brand-chip">BMW</span>
         <span class="brand-chip">Mercedes-Benz</span><span class="brand-chip">Audi</span><span class="brand-chip">Ford</span>
@@ -362,18 +356,18 @@ otwieramy i dorabiamy klucz prosto na miejscu.</p>
         <span class="brand-chip">Peugeot</span><span class="brand-chip">Citroën</span><span class="brand-chip">Fiat</span>
         <span class="brand-chip">Mazda</span><span class="brand-chip">Honda</span><span class="brand-chip">Lexus</span>
       </div>
-      <p class="brand-note reveal">Nie widzisz swojej marki? Zapytaj telefonicznie — najpewniej też ją obsłużymy.</p>
+      <p class="brand-note reveal in">Nie widzisz swojej marki? Zapytaj telefonicznie — najpewniej też ją obsłużymy.</p>
     </div>
   </section>
 
   <section class="pricing" id="pricing">
     <div class="wrap">
-      <div class="section-head reveal">
+      <div class="section-head reveal in">
         <div class="eyebrow">Cennik</div>
         <h2>Przejrzysta wycena</h2>
         <p>Ostateczna cena zależy od marki, modelu i typu klucza — dokładną kwotę mistrz poda po diagnostyce.</p>
       </div>
-      <table class="price-table reveal">
+      <table class="price-table reveal in">
         <tbody><tr><td>Prosty klucz bez chipa</td><td>od 120 zł</td></tr>
         <tr><td>Klucz z chipem (transponder)</td><td>od 280 zł</td></tr>
         <tr><td>Klucz z pilotem centralnego zamka</td><td>od 480 zł</td></tr>
@@ -381,28 +375,28 @@ otwieramy i dorabiamy klucz prosto na miejscu.</p>
         <tr><td>Otwieranie zamka drzwi</td><td>od 150 zł</td></tr>
         <tr><td>Dojazd mistrza</td><td>od 50 zł*</td></tr>
       </tbody></table>
-      <p class="price-note reveal">* Koszt dojazdu wliczany jest w cenę końcową przy realizacji zlecenia.</p>
+      <p class="price-note reveal in">* Koszt dojazdu wliczany jest w cenę końcową przy realizacji zlecenia.</p>
     </div>
   </section>
 
   <section class="reviews" id="reviews">
     <div class="wrap">
-      <div class="section-head reveal">
+      <div class="section-head reveal in">
         <div class="eyebrow">Opinie</div>
         <h2>Co mówią klienci</h2>
       </div>
       <div class="review-grid">
-        <div class="review-card reveal">
+        <div class="review-card reveal in">
           <div class="stars">★★★★★</div>
           <p>Zgubiłem kluczyk do Hyundaia Solaris późnym wieczorem — mistrz przyjechał w 35 minut i zrobił klucz z chipem prosto na podwórku.</p>
           <div class="who">Igor · Hyundai Solaris</div>
         </div>
-        <div class="review-card reveal">
+        <div class="review-card reveal in">
           <div class="stars">★★★★★</div>
           <p>Pękła obudowa pilota od Kii Rio, przyciski nie działały. Wymienili obudowę i zaprogramowali od nowa w 20 minut.</p>
           <div class="who">Marina · Kia Rio</div>
         </div>
-        <div class="review-card reveal">
+        <div class="review-card reveal in">
           <div class="stars">★★★★★</div>
           <p>Zgubiłem oba kluczyki do starego Forda Focusa. Zrobili nowy klucz na podstawie VIN, auto odpaliło za pierwszym razem.</p>
           <div class="who">Dmitrij · Ford Focus</div>
@@ -413,11 +407,11 @@ otwieramy i dorabiamy klucz prosto na miejscu.</p>
 
   <section class="faq">
     <div class="wrap">
-      <div class="section-head reveal">
+      <div class="section-head reveal in">
         <div class="eyebrow">Pytania</div>
         <h2>Najważniejsze informacje</h2>
       </div>
-      <div class="faq-list reveal">
+      <div class="faq-list reveal in">
         <div class="faq-item">
           <button class="faq-q">Czy muszę potwierdzić, że auto jest moje? <span class="plus">+</span></button>
           <div class="faq-a"><p>Tak. Przy wykonywaniu klucza bez 
@@ -444,7 +438,7 @@ to standardowe zabezpieczenie przed kradzieżą, a nie formalność.</p></div>
 
   <section class="contact" id="contact">
     <div class="wrap contact-grid">
-      <div class="reveal">
+      <div class="reveal in">
         <div class="eyebrow">Kontakt</div>
         <h2>Zadzwoń — mistrz przyjedzie jeszcze dziś</h2>
         <div class="contact-lines">
@@ -457,7 +451,7 @@ to standardowe zabezpieczenie przed kradzieżą, a nie formalność.</p></div>
           <a class="btn btn-primary" href="tel:+48736039306">Zadzwoń do mistrza</a>
         </div>
       </div>
-      <div class="radar reveal" aria-hidden="true">
+      <div class="radar reveal in" aria-hidden="true">
         <div class="ring r3"></div>
         <div class="ring r2"></div>
         <div class="ring r1"></div>
@@ -495,24 +489,11 @@ to standardowe zabezpieczenie przed kradzieżą, a nie formalność.</p></div>
   // menu mobilne
   const toggle = document.querySelector('.menu-toggle');
   const navLinks = document.querySelector('.nav-links');
-  const closeMenu = () => { navLinks.style.display = 'none'; };
   toggle.addEventListener('click', () => {
     const open = navLinks.style.display === 'flex';
     navLinks.style.display = open ? 'none' : 'flex';
     navLinks.style.cssText += open ? '' : 'position:fixed;top:72px;left:0;right:0;background:#111113;flex-direction:column;padding:20px 24px;gap:18px;border-bottom:1px solid rgba(255,255,255,0.09);';
   });
-  navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
-
-  // плавная смена фото kluczyki-foto → foto2 → foto3 → foto (каждые 4 сек)
-  const slides = document.querySelectorAll('.photo-slider .slide');
-  if (slides.length > 1 && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    let slideIndex = 0;
-    setInterval(() => {
-      slides[slideIndex].classList.remove('active');
-      slideIndex = (slideIndex + 1) % slides.length;
-      slides[slideIndex].classList.add('active');
-    }, 4000);
-  }
 
   // akordeon FAQ
   document.querySelectorAll('.faq-item').forEach(item => {
