@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="pl"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mistrz Kluczy — dorabianie kluczy samochodowych w Warszawie 24/7</title>
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link href="2Mistrz%20Kluczy%20%E2%80%94%20dorabianie%20kluczy%20samochodowych%20w%20Warszawie%2024_7_files/css2_CS7m.css" rel="stylesheet">
+<style>
+  :root{
+    --bg:#111113;
+    --bg-2:#18181b;
+    --surface:#1c1c1f;
+    --surface-2:#232326;
+    --text:#f5f5f2;
+    --muted:#9a9aa0;
+    --yellow:#ffcc00;
+    --yellow-dim:#c9a300;
+    --red:#e63946;
+    --red-dim:#b52e39;
+    --line:rgba(255,255,255,0.09);
+    --radius:4px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Barlow',sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.display{
+    font-family:'Barlow Condensed',sans-serif;
+    text-transform:uppercase;
+    letter-spacing:-0.01em;
+    line-height:0.98;
+    font-weight:800;
+  }
+  .mono{font-family:'JetBrains Mono',monospace;}
+  a{color:inherit;text-decoration:none;}
+  img,svg{display:block;max-width:100%;}
+  ul{list-style:none;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px;}
+  section{position:relative;}
+  ::selection{background:var(--yellow);color:#111;}
+  :focus-visible{outline:2px solid var(--yellow);outline-offset:3px;}
+
+  /* ---------- signature: hazard stripe divider ---------- */
+  .hazard{
+    height:12px;width:100%;
+    background:repeating-linear-gradient(-45deg,var(--yellow) 0 22px,#111113 22px 44px);
+  }
+  .hazard.thin{height:6px;}
+
+  /* ---------- header ---------- */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    background:rgba(17,17,19,0.94);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;height:72px;}
+  .brand{display:flex;align-items:center;gap:10px;font-family:'Barlow Condensed';font-size:22px;font-weight:800;text-transform:uppercase;letter-spacing:0;}
+  .brand-logo{width:80px;height:80px;flex-shrink:0;}
+  .brand strong{color:var(--yellow);}
+  .nav-links{display:flex;gap:30px;font-size:15px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.02em;}
+  .nav-links a{font-family:'Barlow Condensed';font-size:16px;}
+  .nav-links a:hover{color:var(--text);}
+  .nav-right{display:flex;align-items:center;gap:18px;}
+  .phone-link{font-family:'JetBrains Mono';font-size:15px;font-weight:700;letter-spacing:0.01em;white-space:nowrap;}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    padding:13px 24px;font-size:16px;font-weight:700;letter-spacing:0.01em;
+    text-transform:uppercase;font-family:'Barlow Condensed';border-radius:var(--radius);
+    border:2px solid transparent;cursor:pointer;transition:transform .15s ease, background .2s ease;
+  }
+  .btn:active{transform:scale(0.96);}
+  .btn-primary{background:var(--yellow);color:#111;}
+  .btn-primary:hover{background:#ffd633;}
+  .btn-ghost{background:transparent;border-color:rgba(255,255,255,.25);color:var(--text);}
+  .btn-ghost:hover{border-color:var(--yellow);color:var(--yellow);}
+  .menu-toggle{display:none;background:none;border:none;color:var(--text);width:32px;height:24px;position:relative;cursor:pointer;}
+  .menu-toggle span{position:absolute;left:0;right:0;height:2px;background:currentColor;transition:.25s;}
+  .menu-toggle span:nth-child(1){top:0;}
+  .menu-toggle span:nth-child(2){top:11px;}
+  .menu-toggle span:nth-child(3){bottom:0;}
+
+  /* ---------- hero ---------- */
+  .hero{
+    padding:150px 0 80px;
+    position:relative;
+    background:
+      radial-gradient(ellipse at 85% -10%, rgba(255,204,0,0.10), transparent 55%),
+      var(--bg);
+  }
+  .hero-grid{display:grid;grid-template-columns:1.05fr 0.95fr;gap:56px;align-items:center;}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    background:var(--yellow);color:#111;font-family:'JetBrains Mono';font-size:12.5px;font-weight:700;
+    letter-spacing:0.08em;text-transform:uppercase;margin-bottom:22px;padding:7px 14px;border-radius:20px;
+  }
+  .eyebrow .dot{width:7px;height:7px;background:var(--red);border-radius:50%;animation:blink 1.4s ease-in-out infinite;}
+  @keyframes blink{0%,100%{opacity:1;}50%{opacity:0.25;}}
+  .hero h1{font-size:clamp(38px,6.4vw,66px);max-width:12ch;}
+  .hero h1 span{color:var(--yellow);}
+  .hero p.lede{margin-top:22px;font-size:17.5px;color:var(--muted);max-width:46ch;}
+  .hero-ctas{display:flex;gap:14px;margin-top:32px;flex-wrap:wrap;}
+  .stat-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:54px;border-top:2px solid var(--line);padding-top:24px;}
+  .stat .num{font-family:'Barlow Condensed';font-size:30px;font-weight:800;color:var(--yellow);}
+  .stat .lbl{font-size:12.5px;color:var(--muted);margin-top:4px;text-transform:uppercase;letter-spacing:.03em;}
+
+  .key-art{position:relative;display:flex;justify-content:center;align-items:center;}
+  .key-photo-card{
+    background:#fff;padding:14px 14px 20px;border-radius:10px;border:4px solid var(--yellow);
+    box-shadow:0 24px 50px rgba(0,0,0,.55);transform:rotate(-2.5deg);max-width:380px;width:100%;
+    animation:float 4.2s ease-in-out infinite;position:relative;z-index:2;
+  }
+  .key-photo-card img{width:100%;border-radius:5px;display:block;}
+  .key-photo-card .tag{
+    position:absolute;top:-14px;right:-14px;background:var(--red);color:#fff;
+    font-family:'Barlow Condensed';font-weight:800;text-transform:uppercase;font-size:13px;
+    padding:8px 12px;border-radius:50%;width:64px;height:64px;display:flex;align-items:center;justify-content:center;
+    text-align:center;line-height:1.05;transform:rotate(8deg);box-shadow:0 6px 14px rgba(0,0,0,.4);
+  }
+  @keyframes float{0%,100%{transform:rotate(-2.5deg) translateY(0);}50%{transform:rotate(-1deg) translateY(-10px);}}
+
+  /* ---------- services ---------- */
+  .section-head{max-width:640px;margin:0 auto 46px;text-align:center;}
+  .section-head .eyebrow{display:inline-flex;justify-content:center;}
+  .section-head h2{font-size:clamp(28px,4vw,44px);}
+  .section-head p{color:var(--muted);margin-top:14px;font-size:15.5px;}
+  .services{padding:80px 0;}
+  .service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--line);border:1px solid var(--line);}
+  .service-card{background:var(--surface);padding:32px 28px;transition:background .2s ease, transform .2s ease;}
+  .service-card:hover{background:var(--surface-2);transform:translateY(-3px);}
+  .service-card .n{font-family:'JetBrains Mono';font-size:12px;color:var(--yellow);letter-spacing:0.08em;font-weight:700;}
+  .service-card h3{font-size:21px;margin-top:14px;font-weight:700;}
+  .service-card p{color:var(--muted);font-size:14.5px;margin-top:10px;font-family:'Barlow';text-transform:none;}
+
+  /* ---------- process ---------- */
+  .process{padding:80px 0;background:var(--surface);}
+  .process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;position:relative;}
+  .process-grid::before{
+    content:"";position:absolute;top:19px;left:8%;right:8%;height:3px;
+    background:repeating-linear-gradient(90deg,var(--yellow) 0 10px,transparent 10px 18px);
+  }
+  .step{position:relative;}
+  .step .idx{
+    width:42px;height:42px;background:var(--bg);border:2px solid var(--yellow);
+    display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono';
+    color:var(--yellow);font-size:15px;font-weight:700;position:relative;z-index:2;
+    clip-path:polygon(20% 0,80% 0,100% 20%,100% 80%,80% 100%,20% 100%,0 80%,0 20%);
+  }
+  .step h3{font-size:19px;margin-top:18px;font-weight:700;}
+  .step p{color:var(--muted);font-size:14px;margin-top:8px;font-family:'Barlow';text-transform:none;}
+
+  /* ---------- brands ---------- */
+  .brands{padding:76px 0;}
+  .brand-grid{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;}
+  .brand-chip{
+    padding:10px 18px;border:1px solid var(--line);border-radius:20px;font-size:13.5px;
+    color:var(--muted);font-family:'JetBrains Mono';transition:border-color .2s, color .2s;
+  }
+  .brand-chip:hover{border-color:var(--yellow);color:var(--yellow);}
+  .brand-note{text-align:center;color:var(--muted);font-size:14px;margin-top:22px;}
+
+  /* ---------- pricing ---------- */
+  .pricing{padding:80px 0;background:var(--surface);}
+  table.price-table{width:100%;border-collapse:collapse;}
+  .price-table tr{border-bottom:1px solid var(--line);}
+  .price-table tr:last-child{border-bottom:none;}
+  .price-table td{padding:20px 8px;font-size:16px;font-family:'Barlow';font-weight:500;}
+  .price-table td:last-child{text-align:right;font-family:'JetBrains Mono';color:var(--yellow);font-size:18px;font-weight:700;white-space:nowrap;}
+  .price-note{margin-top:24px;font-size:13.5px;color:var(--muted);}
+
+  /* ---------- reviews ---------- */
+  .reviews{padding:80px 0;}
+  .review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .review-card{background:var(--surface);border:1px solid var(--line);padding:28px;border-radius:var(--radius);border-top:3px solid var(--yellow);}
+  .stars{color:var(--yellow);letter-spacing:2px;font-size:14px;}
+  .review-card p{margin-top:14px;font-size:14.5px;color:var(--text);font-family:'Barlow';}
+  .review-card .who{margin-top:16px;font-size:13px;color:var(--muted);font-family:'JetBrains Mono';}
+
+  /* ---------- faq ---------- */
+  .faq{padding:80px 0;background:var(--surface);}
+  .faq-list{max-width:760px;margin:0 auto;}
+  .faq-item{border-bottom:1px solid var(--line);}
+  .faq-q{
+    width:100%;text-align:left;background:none;border:none;color:var(--text);
+    padding:22px 0;font-family:'Barlow Condensed';font-size:19px;font-weight:700;text-transform:none;
+    display:flex;justify-content:space-between;align-items:center;cursor:pointer;gap:20px;
+  }
+  .faq-q .plus{font-family:'JetBrains Mono';color:var(--yellow);font-size:22px;transition:transform .2s;flex-shrink:0;}
+  .faq-item.open .plus{transform:rotate(45deg);}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;}
+  .faq-a p{color:var(--muted);font-size:14.5px;padding-bottom:22px;max-width:60ch;font-family:'Barlow';}
+
+  /* ---------- contact ---------- */
+  .contact{padding:80px 0;}
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;}
+  .contact h2{font-size:clamp(28px,4vw,40px);}
+  .contact-lines{margin-top:26px;display:flex;flex-direction:column;gap:16px;}
+  .contact-lines .row{display:flex;gap:14px;font-size:15.5px;}
+  .contact-lines .row .lbl{color:var(--muted);min-width:150px;text-transform:uppercase;font-size:12.5px;letter-spacing:.04em;padding-top:2px;}
+  .contact-lines .row .val{font-family:'JetBrains Mono';font-weight:600;}
+  .radar{position:relative;width:100%;aspect-ratio:1/1;max-width:320px;margin:0 auto;display:flex;align-items:center;justify-content:center;}
+  .radar .ring{position:absolute;border:2px solid var(--yellow);border-radius:50%;opacity:0.5;}
+  .radar .ring.r1{width:30%;height:30%;}
+  .radar .ring.r2{width:60%;height:60%;animation:pulse 3s ease-out infinite;}
+  .radar .ring.r3{width:90%;height:90%;animation:pulse 3s ease-out infinite 1s;}
+  @keyframes pulse{0%{opacity:0.55;}100%{opacity:0;transform:scale(1.08);}}
+  .radar .center{width:16px;height:16px;background:var(--red);border-radius:50%;position:relative;z-index:2;box-shadow:0 0 0 6px rgba(230,57,70,0.22);}
+
+  /* ---------- footer ---------- */
+  footer{padding:46px 0 26px;border-top:1px solid var(--line);}
+  .footer-grid{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:28px;}
+  .footer-links{display:flex;gap:24px;font-size:15px;color:var(--muted);flex-wrap:wrap;font-family:'Barlow Condensed';text-transform:uppercase;}
+  .footer-bottom{margin-top:32px;padding-top:20px;border-top:1px solid var(--line);display:flex;justify-content:space-between;color:var(--muted);font-size:13px;flex-wrap:wrap;gap:10px;}
+
+  /* ---------- sticky mobile call ---------- */
+  .sticky-call{
+    display:none;position:fixed;bottom:0;left:0;right:0;z-index:99;
+    background:var(--yellow);color:#111;text-align:center;padding:16px;
+    font-family:'Barlow Condensed';text-transform:uppercase;font-size:16px;font-weight:800;
+  }
+
+  /* ---------- reveal ---------- */
+  .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in{opacity:1;transform:translateY(0);}
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.001s !important;transition-duration:0.001s !important;}
+    .key-path{stroke-dashoffset:0;}
+  }
+
+  @media (max-width:920px){
+    .nav-links{display:none;}
+    .menu-toggle{display:block;}
+    .hero-grid{grid-template-columns:1fr;}
+    .key-art{order:-1;max-width:220px;margin:0 auto;}
+    .stat-strip{grid-template-columns:repeat(2,1fr);row-gap:24px;}
+    .service-grid{grid-template-columns:1fr;}
+    .process-grid{grid-template-columns:1fr 1fr;row-gap:36px;}
+    .process-grid::before{display:none;}
+    .review-grid{grid-template-columns:1fr;}
+    .contact-grid{grid-template-columns:1fr;}
+    .sticky-call{display:block;}
+    body{padding-bottom:58px;}
+    .phone-link{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="brand">
+      <img src="logo.jpg" alt="Kot Key Logo" class="brand-logo">
+      <span>Kot <strong>Key</strong></span>
+    </div>
+    <nav class="nav-links">
+      <a href="#services">Usługi</a>
+      <a href="#process">Jak to działa</a>
+      <a href="#brands">Marki</a>
+      <a href="#pricing">Cennik</a>
+      <a href="#reviews">Opinie</a>
+      <a href="#contact">Kontakt</a>
+    </nav>
+    <div class="nav-right">
+      <a class="phone-link" href="tel:+48736039306">+48 736 039 306</a>
+      <a class="btn btn-primary" href="tel:+48736039306">Zadzwoń teraz</a>
+      <button class="menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="reveal in">
+        <div class="eyebrow"><span class="dot"></span>Dojazd w 30 minut · Warszawa 24/7</div>
+        <h1>Zablokowany?<br>Zrobimy nowy klucz <span>odpalimy auto</span></h1>
+        <p class="lede">Duplikaty, klucze z chipem, piloty i 
+smart-klucze do ponad 40 marek. Mistrz przyjeżdża z pełnym sprzętem — 
+otwieramy i dorabiamy klucz prosto na miejscu.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="tel:+48736039306">Zadzwoń teraz</a>
+          <a class="btn btn-ghost" href="#pricing">Zobacz cennik</a>
+        </div>
+        <div class="stat-strip">
+          <div class="stat"><div class="num" data-count="3000" data-suffix="+">3000+</div><div class="lbl">dorobionych kluczy</div></div>
+          <div class="stat"><div class="num" data-count="40" data-suffix="+">40+</div><div class="lbl">marek samochodów</div></div>
+          <div class="stat"><div class="num" data-count="30" data-suffix=" min">30 min</div><div class="lbl">średni dojazd</div></div>
+          <div class="stat"><div class="num" data-count="24" data-suffix="/7">24/7</div><div class="lbl">dostępność</div></div>
+        </div>
+      </div>
+      <div class="key-art" aria-hidden="true">
+        <div class="key-photo-card">
+          <img src="kluczyki-foto.jpg" alt="Kluczyki samochodowe do różnych marek — Mistrz Kluczy Warszawa">
+          <div class="tag">24/7</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="hazard" aria-hidden="true"></div>
+
+  <section class="services" id="services">
+    <div class="wrap">
+      <div class="section-head reveal in">
+        <div class="eyebrow">Usługi</div>
+        <img src="2kluczyki-foto.jpg" alt="Kluczyki samochodowe do różnych marek — Mistrz Kluczy Warszawa">
+        <h2>Każda sprawa z kluczykiem</h2>
+        <p>Od prostego duplikatu po pełne przywrócenie dostępu, gdy zgubiono komplet kluczy.</p>
+      </div>
+      <div class="service-grid">
+        <div class="service-card reveal in"><div class="n">01</div><h3>Klucz na wzór</h3><p>Wykonamy dokładną kopię oryginału — część mechaniczną i chip w jednym dojeździe.</p></div>
+        <div class="service-card reveal in"><div class="n">02</div><h3>Klucz bez wzoru</h3><p>Odczytujemy dane z wkładki zamka lub numeru VIN, gdy oryginału brak, a auto jeździ.</p></div>
+        <div class="service-card reveal in"><div class="n">03</div><h3>Programowanie chipa</h3><p>Zapisujemy transponder w immobilizerze, aby silnik rozpoznał nowy klucz.</p></div>
+        <div class="service-card reveal in"><div class="n">04</div><h3>Naprawa pilota</h3><p>Wymieniamy obudowę, przyciski, płytkę lub baterię pilota centralnego zamka.</p></div>
+        <div class="service-card reveal in"><div class="n">05</div><h3>Otwieranie drzwi</h3><p>Delikatnie otworzymy auto bez uszkodzeń, gdy kluczyk zostanie w środku.</p></div>
+        <div class="service-card reveal in"><div class="n">06</div><h3>Zgubiony komplet kluczy</h3><p>Kompletne rozwiązanie od zera: obejście immobilizera i wydanie nowego klucza.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="process" id="process">
+    <div class="wrap">
+      <div class="section-head reveal in">
+        <div class="eyebrow">Kolejność działań</div>
+        <h2>Cztery kroki do nowego klucza</h2>
+      </div>
+      <div class="process-grid">
+        <div class="step reveal in"><div class="idx">01</div><h3>Zgłoszenie</h3><p>Dzwonisz — podajesz markę, rok i sytuacje z kluczem.</p></div>
+        <div class="step reveal in"><div class="idx">02</div><h3>Dojazd</h3><p>Mistrz przyjeżdża ze sprzętem pod wskazany adres w Warszawie.</p></div>
+        <div class="step reveal in"><div class="idx">03</div><h3>Wykonanie</h3><p>Ustalamy typ klucza, wycinamy profil i programujemy chip na miejscu.</p></div>
+        <div class="step reveal in"><div class="idx">04</div><h3>Sprawdzenie</h3><p>Testujemy wszystkie funkcje klucza — płatność dopiero po udanym efekcie.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="brands" id="brands">
+    <div class="wrap">
+      <div class="section-head reveal in">
+        <div class="eyebrow">Marki</div>
+        <h2>Obsługujemy większość samochodów</h2>
+      </div>
+      <div class="brand-grid reveal in">
+        <span class="brand-chip">Toyota</span><span class="brand-chip">Kia</span><span class="brand-chip">Hyundai</span>
+        <span class="brand-chip">Volkswagen</span><span class="brand-chip">Škoda</span><span class="brand-chip">BMW</span>
+        <span class="brand-chip">Mercedes-Benz</span><span class="brand-chip">Audi</span><span class="brand-chip">Ford</span>
+        <span class="brand-chip">Nissan</span><span class="brand-chip">Renault</span><span class="brand-chip">Opel</span>
+        <span class="brand-chip">Peugeot</span><span class="brand-chip">Citroën</span><span class="brand-chip">Fiat</span>
+        <span class="brand-chip">Mazda</span><span class="brand-chip">Honda</span><span class="brand-chip">Lexus</span>
+      </div>
+      <p class="brand-note reveal in">Nie widzisz swojej marki? Zapytaj telefonicznie — najpewniej też ją obsłużymy.</p>
+    </div>
+  </section>
+
+  <section class="pricing" id="pricing">
+    <div class="wrap">
+      <div class="section-head reveal in">
+        <div class="eyebrow">Cennik</div>
+        <h2>Przejrzysta wycena</h2>
+        <p>Ostateczna cena zależy od marki, modelu i typu klucza — dokładną kwotę mistrz poda po diagnostyce.</p>
+      </div>
+      <table class="price-table reveal in">
+        <tbody><tr><td>Prosty klucz bez chipa</td><td>od 120 zł</td></tr>
+        <tr><td>Klucz z chipem (transponder)</td><td>od 280 zł</td></tr>
+        <tr><td>Klucz z pilotem centralnego zamka</td><td>od 480 zł</td></tr>
+        <tr><td>Smart-klucz (keyless)</td><td>od 750 zł</td></tr>
+        <tr><td>Otwieranie zamka drzwi</td><td>od 150 zł</td></tr>
+        <tr><td>Dojazd mistrza</td><td>od 50 zł*</td></tr>
+      </tbody></table>
+      <p class="price-note reveal in">* Koszt dojazdu wliczany jest w cenę końcową przy realizacji zlecenia.</p>
+    </div>
+  </section>
+
+  <section class="reviews" id="reviews">
+    <div class="wrap">
+      <div class="section-head reveal in">
+        <div class="eyebrow">Opinie</div>
+        <h2>Co mówią klienci</h2>
+      </div>
+      <div class="review-grid">
+        <div class="review-card reveal in">
+          <div class="stars">★★★★★</div>
+          <p>Zgubiłem kluczyk do Hyundaia Solaris późnym wieczorem — mistrz przyjechał w 35 minut i zrobił klucz z chipem prosto na podwórku.</p>
+          <div class="who">Igor · Hyundai Solaris</div>
+        </div>
+        <div class="review-card reveal in">
+          <div class="stars">★★★★★</div>
+          <p>Pękła obudowa pilota od Kii Rio, przyciski nie działały. Wymienili obudowę i zaprogramowali od nowa w 20 minut.</p>
+          <div class="who">Marina · Kia Rio</div>
+        </div>
+        <div class="review-card reveal in">
+          <div class="stars">★★★★★</div>
+          <p>Zgubiłem oba kluczyki do starego Forda Focusa. Zrobili nowy klucz na podstawie VIN, auto odpaliło za pierwszym razem.</p>
+          <div class="who">Dmitrij · Ford Focus</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq">
+    <div class="wrap">
+      <div class="section-head reveal in">
+        <div class="eyebrow">Pytania</div>
+        <h2>Najważniejsze informacje</h2>
+      </div>
+      <div class="faq-list reveal in">
+        <div class="faq-item">
+          <button class="faq-q">Czy muszę potwierdzić, że auto jest moje? <span class="plus">+</span></button>
+          <div class="faq-a"><p>Tak. Przy wykonywaniu klucza bez 
+oryginału mistrz poprosi o dowód rejestracyjny i dokument tożsamości — 
+to standardowe zabezpieczenie przed kradzieżą, a nie formalność.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Ile trwa dojazd i sama usługa? <span class="plus">+</span></button>
+          <div class="faq-a"><p>Mistrz dojeżdża średnio w 30–40 minut na
+ terenie Warszawy. Samo wykonanie i zaprogramowanie klucza zajmuje od 20
+ minut do półtorej godziny, zależnie od typu klucza.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Czy jest gwarancja na klucz? <span class="plus">+</span></button>
+          <div class="faq-a"><p>Tak, 12 miesięcy na pracę mistrza i część mechaniczną klucza. Podzespoły elektroniczne objęte są gwarancją producenta części.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Pracujecie w nocy i w weekendy? <span class="plus">+</span></button>
+          <div class="faq-a"><p>Tak, 24/7 — także w nocy, święta i weekendy. Zadzwoń, a mistrz wyjedzie do Ciebie o każdej porze.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap contact-grid">
+      <div class="reveal in">
+        <div class="eyebrow">Kontakt</div>
+        <h2>Zadzwoń — mistrz przyjedzie jeszcze dziś</h2>
+        <div class="contact-lines">
+          <div class="row"><span class="lbl">Telefon</span><a class="val" href="tel:+48736039306">736 039 306</a></div>
+          <div class="row"><span class="lbl">Godziny pracy</span><span class="val">Codziennie, 24/7</span></div>
+          <div class="row"><span class="lbl">Obszar dojazdu</span><span class="val">Warszawa i okolice</span></div>
+          <div class="row"><span class="lbl">Płatność</span><span class="val">Gotówka / karta</span></div>
+        </div>
+        <div class="hero-ctas" style="margin-top:30px;">
+          <a class="btn btn-primary" href="tel:+48736039306">Zadzwoń do mistrza</a>
+        </div>
+      </div>
+      <div class="radar reveal in" aria-hidden="true">
+        <div class="ring r3"></div>
+        <div class="ring r2"></div>
+        <div class="ring r1"></div>
+        <div class="center"></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="brand">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7" cy="12" r="4.2"></circle><path d="M11 12h11M17 12v4M20.5 12v3"></path></svg>
+        <span>Mistrz <strong>Kluczy</strong></span>
+      </div>
+      <div class="footer-links">
+        <a href="#services">Usługi</a>
+        <a href="#process">Jak to działa</a>
+        <a href="#pricing">Cennik</a>
+        <a href="#contact">Kontakt</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Mistrz Kluczy. Wszelkie prawa zastrzeżone.</span>
+      <span>Dojazd 24/7 · Warszawa</span>
+    </div>
+  </div>
+</footer>
+
+<a class="sticky-call" href="tel:+48736039306">Zadzwoń do mistrza →</a>
+
+<script>
+  // menu mobilne
+  const toggle = document.querySelector('.menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  toggle.addEventListener('click', () => {
+    const open = navLinks.style.display === 'flex';
+    navLinks.style.display = open ? 'none' : 'flex';
+    navLinks.style.cssText += open ? '' : 'position:fixed;top:72px;left:0;right:0;background:#111113;flex-direction:column;padding:20px 24px;gap:18px;border-bottom:1px solid rgba(255,255,255,0.09);';
+  });
+
+  // akordeon FAQ
+  document.querySelectorAll('.faq-item').forEach(item => {
+    const btn = item.querySelector('.faq-q');
+    const ans = item.querySelector('.faq-a');
+    btn.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(o => { o.classList.remove('open'); o.querySelector('.faq-a').style.maxHeight = null; });
+      if (!isOpen) { item.classList.add('open'); ans.style.maxHeight = ans.scrollHeight + 'px'; }
+    });
+  });
+
+  // reveal-animacja przy scrollowaniu
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const revealEls = document.querySelectorAll('.reveal');
+  if (prefersReduced) {
+    revealEls.forEach(el => el.classList.add('in'));
+  } else {
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    revealEls.forEach(el => obs.observe(el));
+  }
+
+  // animowane liczniki statystyk
+  const counters = document.querySelectorAll('.num[data-count]');
+  const animateCount = (el) => {
+    const target = parseInt(el.dataset.count, 10);
+    const suffix = el.dataset.suffix || '';
+    if (prefersReduced) { el.textContent = target.toLocaleString('pl-PL') + suffix; return; }
+    const duration = 1400;
+    const start = performance.now();
+    const step = (now) => {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const value = Math.round(target * eased);
+      el.textContent = value.toLocaleString('pl-PL') + suffix;
+      if (progress < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  };
+  const countObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { animateCount(e.target); countObs.unobserve(e.target); } });
+  }, { threshold: 0.5 });
+  counters.forEach(c => countObs.observe(c));
+</script>
+
+
+
+</body></html>
